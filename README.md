@@ -36,3 +36,31 @@ npm install DOM - Install DOM
 it is an package to work our app older versions browers & customer/country specific accordingly
 
 
+# Foundation Start #
+*Adding Scripts to Run & Build package.json
+*npm start / npm run start & npm build
+# ReactElement is  => Object & then turned to => HTML Tag(render)
+
+## JSX ##
+# JSX => ReactCreateElement => ReactElement is  => Object & then turned to => HTML Tag(render)
+JSX is transpilled before it reaches to the JS Engine & JS Engine understands ECMA Script.
+Transpilation is done by parcel with Babel 
+JSX while giving Attributes we have to use camelCase & if we are writing multiline code we need to wrap wit () Babel understands the Starting & ending of JSX
+
+# React Component
+1) Class Based Components - OLD
+2) Functional Based Components - NEW
+    Functional Components are rendered with syntax in root(<HeadingComponent />) & or in any other component
+    {} with Curly braces we can insert any JavaScript code inside the Component of JSX & Elements too 
+    
+    const HeadingComponent = () => (
+    <div id = "parent">
+        <TitleComponent/>  // Display Component
+        <TitleComponent></TitleComponent> // Display Component
+        {TitleComponent()} // Calling Function
+        {jsxHeading} // Display Element
+        {4 * 4} // JS Code
+        <h1 className="heading">I am coming from a component </h1>
+    </div>
+
+);
