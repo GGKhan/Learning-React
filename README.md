@@ -64,3 +64,49 @@ JSX while giving Attributes we have to use camelCase & if we are writing multili
     </div>
 
 );
+
+# 19-01-2024
+## Learning Concepts With Project ##
+# Foodies App ##
+# PLANNING
+* Header
+=> LOGO
+=> NAV Items
+* Body
+=> Search
+=> Resto Container
+=> Resto Card
+* Footer
+=> Copy Right
+=> Links
+=> Address
+=> Contact
+
+# 22-01-2024
+## PROPS ##
+It is used to passs the dynamic content to the components ; Passing an Argument to an function like pasing a prop to an component. its an object in react.
+## Destructurring  ## ResData = {pistaObj}
+Object destructuring is a feature in JavaScript that allows you to extract properties from objects and bind them to variables in a concise and readable way. It provides a convenient syntax for extracting values from objects and arrays.
+const {   
+    name, 
+    cloudinaryImageId,
+    cuisines,
+    costForTwo,
+    avgRating,
+    sla: {deliveryTime}
+    } = resData.info ;
+
+# 23-01-2024
+
+## Props ##
+"props" stands for "properties," and it refers to the mechanism for passing data from a parent component to a child component. Props are a way for components to communicate with each other by passing information down the component tree. They allow you to configure a child component with specific data or behavior.
+## Map() ##
+it is used to itirate the elements.
+<div className = "resto-container">
+              {resListObj.map( (restro) => 
+              
+              <RestoCard key=  {restro.info.id} resData = {restro}/>)}
+</div>
+
+## key properties ##
+note: - Alway's mention key's in loops.. key =  {restro.info.id} key's with id's for Data because it will stop rendering complete data instead of new data. its an optimization technique's to avoide warning...(Never Use (Index) as key's recommended but data with no id's use unique (key) or last use index..)
