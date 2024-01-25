@@ -1,7 +1,4 @@
-import React from "react";
-import  ReactDOM from "react-dom/client";
-
-const resListObj = [
+let resListObj = [
 
     {
         "info": {
@@ -1079,79 +1076,4 @@ const resListObj = [
       },
     ];
 
-const Header = () => { 
-return (
-        <div className = "header">
-            <div className = "logo-container">
-                <img className ="logo" 
-                src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZdCLiR4wzrzL3HcuNbM8iaeDc9VpqyGkvvA&usqp=CAU"
-                />
-            </div>
-         <div className = "nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>     
-            </div>
-        
-        </div>
-    );
-};
-
-
-const RestoCard = (props) => {
-    const {resData} = props;
-    const {   
-    name, 
-    cloudinaryImageId,
-    cuisines,
-    costForTwo,
-    avgRating,
-    sla: {deliveryTime}
-    } = resData.info ;
-    return (
-           <div className = "restocard">
-           <img alt="logo" className = "restoimg" src = 
-           {"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-            cloudinaryImageId
-           }/>
-          <h2>{name}</h2>
-          <h5>{cuisines.join(",")} ...more</h5>
-          <h5>{costForTwo}</h5>
-          <h5>{avgRating} Stars</h5>
-          <h5>Arrival time {deliveryTime} minutes</h5>
-       </div>
-    );
-};
-
-
-
-const Body = () => {
-    return(
-        <div className = "body-container">
-            <div className = "search">Search</div>
-             <div className = "resto-container">
-              {resListObj.map( (restro) => 
-              <RestoCard key=  {restro.info.id} resData = {restro}/>)}
-             </div>
-        </div>
-    );
-};
-
-const AppLayout = () => {
-    return (
-        <div className = "app">
-
-            <Header></Header>
-            <Body></Body>
-            
-
-        </div>
-    );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
+export default resListObj;

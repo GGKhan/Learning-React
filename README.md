@@ -110,3 +110,17 @@ it is used to itirate the elements.
 
 ## key properties ##
 note: - Alway's mention key's in loops.. key =  {restro.info.id} key's with id's for Data because it will stop rendering complete data instead of new data. its an optimization technique's to avoide warning...(Never Use (Index) as key's recommended but data with no id's use unique (key) or last use index..)
+
+# 24-01-2024
+
+* File's / Components seperation is the best practice.
+## Export & Import ##
+Two types
+1) Default is used for single files
+2) export with Named is used for the multi files import with {} braces
+## Hook's ##
+React Hook is an normal JavaScript Function & it gives some inbuilt utlities
+Important Hook's
+1) Use-State
+2) Use-Effect
+when ever the state variable updates React Re-renders the component
