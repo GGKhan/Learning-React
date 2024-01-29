@@ -124,3 +124,17 @@ Important Hook's
 1) Use-State
 2) Use-Effect
 when ever the state variable updates React Re-renders the component
+
+# 24-01-2024 #
+The useState Hook can be used to keep track of strings, numbers, booleans, arrays, objects, and any combination of these! We could create multiple state Hooks to track individual values.
+## Use - Effect ##
+It works after Rendering the Component.
+In summary, useState is used to manage state within a component, allowing you to store and update data. useEffect is used to perform side effects in a component, such as updating the document title, fetching data, or subscribing to events.
+
+Load => Render => API Call => Render
+
+# Shimmer - UI #
+It is an Fake UI which is shown before the API Fetch Data & Renders it.. its just like a loder while displaying the dat.. as per latest UI Practice. Also Called Conditional Rendering
+
+
+
