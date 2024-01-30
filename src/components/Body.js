@@ -4,11 +4,11 @@ import Shimmer from "./Shimmer";
 
 
 const Body = () => {
-const [listOfRestro , setListOfRestro] = useState([]);
+const [listOfRestro,setListOfRestro] = useState([]);
 
 const [searchList,setSearchList] = useState("");
 
-const [filteredRestro , setfilteredRestro] = useState([])
+const [filteredRestro , setfilteredRestro] = useState([]);
 
 useEffect(()=>{
     fetchData();
@@ -25,6 +25,7 @@ const fetchData = async () => {
     console.log(json);
     //Optional Chaining
     setListOfRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
     setfilteredRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 };
     //Conditional Rendering => with Ternary Operator
@@ -58,7 +59,8 @@ const fetchData = async () => {
                         const filterList = listOfRestro.filter(
                             (res) => res.info.avgRatingString >  4.1
                         );
-                    setListOfRestro(filterList);
+                        console.log(filterList)
+                        setfilteredRestro(filterList);
                 }}
                 >Top Rated Restro</button>
             </div>
