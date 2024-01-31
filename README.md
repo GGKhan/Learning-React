@@ -136,5 +136,66 @@ Load => Render => API Call => Render
 # Shimmer - UI #
 It is an Fake UI which is shown before the API Fetch Data & Renders it.. its just like a loder while displaying the dat.. as per latest UI Practice. Also Called Conditional Rendering
 
+## 25th , 26th , 29th ##
+
+## 30-01-2024 ##
+
+# Routing #
+* useeffect  :- useeffect(() => []);
+It is called by importing from react & it has two arrguments , 1st is callBack function & Dependencies Array.
+It will called after rendering every component.
+Note-1:- when the dependency Array [] not present useeffect will call on every render
+Note-2:- when the dependency Array [] is present useeffect will call on one render/Initial render (Just Once)
+Note-3:- when the dependency Array [""] is present wth some Component , Button e.t.c useeffect will call on intal render aswell along wth the one render call of Array values renders every time.
+
+* usestate  :- usestate ([])
+Usestate should be called always insde a body or component function & it is used to create state variables insde the component.
+Never use usestate with if() , else if() conditons... & for Loops & inside the functional components on the higher level.
+
+## Routing ##
+npm install react-router.dom
+To develope a routes we have to create routing configuration
+import createRouterBrowser , RouterProvider from react-router-dom
+We can Give path accordngly,
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+const appRouting = createBrowserRouter ([
+    {
+        path: "/",
+        element: <AppLayout/>,
+        errorElement: <Error/>  
+    },
+* ChildRouting *
+import { RouterProvider, createBrowserRouter , outlet } from "react-router-dom";
+const appRouting = createBrowserRouter ([
+    {
+        path: "/",
+        element: <AppLayout/>,
+        children: [
+            {
+                path: "/",
+                element: <Body/>,
+            },
+        ]
+ChildRouting will wth outlet wll keep required components accordingly render
+<div className="app" >
+
+            <Header/>
+
+            <Outlet/>
+</div>
+
+* RouterLink *
+import { Link } from "react-router-dom";
+
+There are two types of routing in web react
+1) Client side routing <=>
+2) Server side routing
+
+
+
+
+
+
+
 
 
