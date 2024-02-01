@@ -191,6 +191,14 @@ There are two types of routing in web react
 1) Client side routing <=>
 2) Server side routing
 
+# 31-01-2024 #
+
+## Dynamic Routing ##
+
+path: "/restro/:resId",
+element: <RestroMenu/>
+
+
 
 
 

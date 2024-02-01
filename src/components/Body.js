@@ -1,6 +1,7 @@
 import RestoCard from "./RestoCard";
 import { useState , useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -22,7 +23,7 @@ const fetchData = async () => {
     const json = await data.json();
     
 
-    console.log(json);
+    // console.log(json);
     //Optional Chaining
     setListOfRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
@@ -65,8 +66,15 @@ const fetchData = async () => {
                 >Top Rated Restro</button>
             </div>
              <div className = "resto-container">
-              {filteredRestro.map( (restro) => 
-              <RestoCard key =  {restro.info.id} resData = {restro}/>)}
+             {filteredRestro.map( (restro) => (
+                <Link 
+                    key =  {restro.info.id} 
+                    to=  {"/restro/" + restro.info.id}
+                >
+                    <RestoCard resData = {restro}/>
+                </Link>
+               
+                ))}
              </div>
         </div>
     );
