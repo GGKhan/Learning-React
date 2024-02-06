@@ -2,14 +2,16 @@ import RestoCard from "./RestoCard";
 import { useState , useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useNetActive from "../utils/useNetActive";
 
 
 const Body = () => {
 const [listOfRestro,setListOfRestro] = useState([]);
 
-const [searchList,setSearchList] = useState("");
+const [searchList,setSearchList] = useState(" ");
 
 const [filteredRestro , setfilteredRestro] = useState([]);
+
 
 useEffect(()=>{
     fetchData();
@@ -22,13 +24,24 @@ const fetchData = async () => {
 
     const json = await data.json();
     
+    console.log(json);
 
-    // console.log(json);
     //Optional Chaining
     setListOfRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
     setfilteredRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 };
+
+
+    const status = useNetActive();
+    
+    if(status === false)
+        return (
+
+            <h1>You're Offline - Make sure you have stable Internet Connection;</h1>
+        );
+
+
     //Conditional Rendering => with Ternary Operator
     // if (listOfRestro.length === 0) {
     //     return 

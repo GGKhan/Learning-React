@@ -156,7 +156,7 @@ Never use usestate with if() , else if() conditons... & for Loops & inside the f
 npm install react-router.dom
 To develope a routes we have to create routing configuration
 import createRouterBrowser , RouterProvider from react-router-dom
-We can Give path accordngly,
+We can Give path accordingly,
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 const appRouting = createBrowserRouter ([
     {
@@ -197,6 +197,49 @@ There are two types of routing in web react
 
 path: "/restro/:resId",
 element: <RestroMenu/>
+
+# 01-02-2024 #
+
+## Classes ## 
+A Class Based component will extends with React.Component along with render () method to run the piece of code
+
+_Example_
+
+import React from "react";
+
+class UserClass extends React.Component {
+    render(){
+        return (
+                    <div className = "container" > 
+                    
+                    <h1>Any Logic</h1> 
+                    
+                    </div>
+        ); 
+    }
+}
+
+export default UserClass;
+
+# 01-02-2024 #
+
+## Optimizing ## 
+
+## Lazy Loading , Chunking , On Demand Loading , Dynamic Bundling , Code Splitting , dynamic import ##
+Example :- 
+<!-- import {LazyComponent} "./components/LazyComponent"; -->
+import React, {lazy , Suspense} from "react";
+
+const LazyComponent = lazy(() => import("./components/LazyComponent"))
+
+Now that your component’s code loads on demand, you also need to specify what should be displayed while it is loading. You can do this by wrapping the lazy component or any of its parents into a <Suspense> boundary:
+
+<Suspense fallback={<Loading />}>
+  <h2>Preview</h2>
+  <MarkdownPreview />
+ </Suspense>
+
+ ## Custom Hooks ##
 
 
 

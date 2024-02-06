@@ -1,33 +1,12 @@
-import { useEffect , useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { Menu_URL } from "../utils/constants";
+import useRestro from "../utils/useRestro";
 
 const RestroMenu = () => {
 
-    const [restroInfo , setRestroInfo] = useState(null);
-
     const {resId} = useParams();
 
-    console.log(resId)
-
-
-    useEffect (() =>{
-        fetchMenu("");
-    },[]);
-
-    const fetchMenu = async () => {
-    const data = await fetch(
-         Menu_URL +
-        resId 
-        );
-   
-    const jsData = await data.json();
-
-    // console.log(jsData);
-
-    setRestroInfo(jsData.data);
-      };
+    const restroInfo = useRestro(resId);
       
       if( restroInfo === null ) return  <Shimmer/>
 
@@ -36,9 +15,9 @@ const RestroMenu = () => {
         costForTwoMessage} = restroInfo?.cards[0]?.card?.card?.info;
 
     const {itemCards} = restroInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
-
-    console.log(itemCards,"abc");
    
+    console.log(itemCards);
+    
      return (
         <div className="restro-menu" >
 

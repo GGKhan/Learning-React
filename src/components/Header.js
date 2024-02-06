@@ -1,10 +1,13 @@
 import { LOGO_URL } from "../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useNetActive from "../utils/useNetActive";
 
 const Header = () => { 
 
     const [btnLoginBtn , setbtnLoginBtn] = useState("Login");
+
+    const status = useNetActive();
     
     return (
             <div className = "header">
@@ -15,7 +18,7 @@ const Header = () => {
                     />
                 </div>
              <div className = "nav-items">
-                    <ul>
+                    <ul> 
                         <li>
                         <Link to= "/">Home</Link>
                         </li>
@@ -26,16 +29,20 @@ const Header = () => {
                         <li>
                         <Link to= "/contact">Contact Us</Link>
                         </li>
-                        
+                         
                         <li>Cart</li>
-                        <button className="login" 
+
+                        <li>{status ? "🟢Online" : "🔴Offline"}</li>
+                        <button className="login"  
+                        
                             onClick={() => 
                             {
                                 btnLoginBtn === "Login"   
                                 ? setbtnLoginBtn ("Logout")  
                                 : setbtnLoginBtn ("Login");
                             }}
-                        >{btnLoginBtn}</button>
+                        >{btnLoginBtn}  
+                        </button>
                     </ul>     
                 </div>
             
