@@ -8,7 +8,7 @@ import useNetActive from "../utils/useNetActive";
 const Body = () => {
 const [listOfRestro,setListOfRestro] = useState([]);
 
-const [searchList,setSearchList] = useState(" ");
+const [searchList,setSearchList] = useState("");
 
 const [filteredRestro , setfilteredRestro] = useState([]);
 
@@ -48,18 +48,18 @@ const fetchData = async () => {
     // }
 
     return listOfRestro.length === 0 ? <Shimmer />  : (
-        <div className = "body-container">
-            <div className = "filter">
-                <div className="search">
-                    <input type="text" 
-                    className="search-bar"
+        <div className = "bg-[#f9f5ea] ">
+            <div className = "flex">
+                <div className="m-4 p-4" >
+                    <input  type ="text" placeholder ="Search...                       🔎"
+                    className=" p-2 border border-solid border-orange-400 rounded-full placeholder:text-black-300"
                     value={searchList}
                     onChange={(input) => 
                         {setSearchList(input.target.value)}
                     }
-                    ></input>
+                    />
 
-                    <button className="search-btn"
+                    <button className=" ps-4 ms-4  text-white bg-orange-400 hover:bg-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900"
                         onClick={() => {
                             const filteredSearchList = listOfRestro.filter((res) => 
                             res.info.name.toLowerCase().includes(searchList.toLowerCase())
@@ -68,7 +68,9 @@ const fetchData = async () => {
                         }}
                     >Search</button>
                 </div>
-                <button className="filter-btn" 
+
+                <div className="m-4 p-4">
+                <button className=" ps-4 ms-4  text-white bg-orange-400 hover:bg-orange-400 focus:outline-none focus:ring-4 focus:ring-orange-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:focus:ring-yellow-900" 
                     onClick={() => {
                         const filterList = listOfRestro.filter(
                             (res) => res.info.avgRatingString >  4.1
@@ -77,8 +79,10 @@ const fetchData = async () => {
                         setfilteredRestro(filterList);
                 }}
                 >Top Rated Restro</button>
+                </div>
+                
             </div>
-             <div className = "resto-container">
+             <div className = "flex flex-wrap ">
              {filteredRestro.map( (restro) => (
                 <Link 
                     key =  {restro.info.id} 

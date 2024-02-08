@@ -242,6 +242,19 @@ Now that your component’s code loads on demand, you also need to specify what 
  ## Custom Hooks ##
 
 
+# 06-02-2024 # # 07-02-2024 #
+
+ ## Tailwind Css ##  (PARCEL)
+ npm install -D tailwindcss postcss
+ npx tailwindcss init
+
+ A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.
+ Tailwind Css can be used to style websites in the fastest and easiest way. Tailwind CSS is basically a utility-first CSS framework for rapidly building custom user interfaces. It is a highly customizable, low-level CSS framework that gives you all of the building blocks you need to build bespoke designs without any annoying opinionated styles you have to fight to override.
+
+The beauty of this thing called tailwind is it doesn’t impose design specifications or how your site should look, you simply bring tiny components together to construct a user interface that is unique. What Tailwind simply does is take a ‘raw’ CSS file, process this CSS file over a configuration file, and produce an output.
+
+
+
 
 
 

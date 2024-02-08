@@ -19,17 +19,17 @@ const RestroMenu = () => {
     console.log(itemCards);
     
      return (
-        <div className="restro-menu" >
+        <div className=" p-4 m-4 w-2/4 h-Auto border border-solid  hover:bg-orange-50 rounded-lg shadow-[5px_5px_0px_0px_rgba(254,215,170)]" >
 
-            <h1>{name}</h1> 
+            <h1 className=" font-bold">{name}</h1> 
 
-            <h2>{cuisines.join(' , ')}</h2>
+            <h2 className="justify-content-center font-semibold">{cuisines.join(' , ')}</h2>
 
-            <h2>{costForTwoMessage}</h2>
+            <h2 className="font-medium">{costForTwoMessage}</h2>
 
             <h3>Menu</h3>
 
-            <ul>
+            <ul className=" justify-evenly from-neutral-700 list-outside ...">
                 {itemCards.map((card) => (
 
                     <li key={card.card.info.id}>
