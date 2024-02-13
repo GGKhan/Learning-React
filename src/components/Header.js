@@ -1,13 +1,16 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState , useContext } from "react";
 import { Link } from "react-router-dom";
 import useNetActive from "../utils/useNetActive";
+import userContext from "../utils/userContext";
 
 const Header = () => { 
 
     const [btnLoginBtn , setbtnLoginBtn] = useState("Login");
 
     const status = useNetActive();
+
+    const {loggedUser} = useContext(userContext);
     
     return (
             <div className = "flex justify-between bg-white shadow-lg mb-2 " >
@@ -32,7 +35,8 @@ const Header = () => {
                          
                         <li className="px-4 font-medium text-orange-400 dark:text-orange-500 hover:underline">Cart</li>
 
-                        <li className="px-4 font-medium text-orange-400 dark:text-orange-500 ">{status ? "🟢Online" : "🔴Offline"}</li>
+                        <li className="px-4 font-medium text-orange-400 dark:text-orange-500 ">{status ? "🟢Online" : "🔴Offline"} </li>
+                        <li className="mx-2">{loggedUser}</li>
                         <button className="text-white bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"  
                         
                             onClick={() => 

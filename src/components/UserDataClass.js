@@ -1,4 +1,7 @@
 import React from "react";
+// import { userContext } from "react";
+
+
 
 class UserDataClass extends React.Component {
 
@@ -14,6 +17,7 @@ class UserDataClass extends React.Component {
         const {name , location} = this.props
 
         const {count} = this.state;
+
 
         return (
             <div className="p-4 m-4 w-80 border border-solid bg-orange-200 cursor-pointer  hover:bg-orange-300 rounded-lg ">
@@ -31,9 +35,18 @@ class UserDataClass extends React.Component {
                         count : this.state.count + 1,
                     });
                 }}>Count Increase</button>
+
+            {/* <div>
+                <userContext.Consumer>
+                    {({loggedUser}) => <h3>{loggedUser}</h3> }
+                </userContext.Consumer>
+            </div> */}
+                
             </div>
         );
     }
+
+            
 }
 
 export default UserDataClass;

@@ -1,4 +1,4 @@
-import RestoCard from "./RestoCard";
+import RestoCard, {withOpenLable} from "./RestoCard";
 import { useState , useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -8,9 +8,12 @@ import useNetActive from "../utils/useNetActive";
 const Body = () => {
 const [listOfRestro,setListOfRestro] = useState([]);
 
+
 const [searchList,setSearchList] = useState("");
 
 const [filteredRestro , setfilteredRestro] = useState([]);
+
+const RestroOpenCard = withOpenLable(RestoCard);
 
 
 useEffect(()=>{
@@ -24,7 +27,7 @@ const fetchData = async () => {
 
     const json = await data.json();
     
-    console.log(json);
+    // console.log(json);
 
     //Optional Chaining
     setListOfRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -87,8 +90,13 @@ const fetchData = async () => {
                 <Link 
                     key =  {restro.info.id} 
                     to=  {"/restro/" + restro.info.id}
+    
                 >
+                    {restro.info.veg ? (
+                        <RestroOpenCard resData = {restro} /> 
+                    ) : (    
                     <RestoCard resData = {restro}/>
+                )}
                 </Link>
                
                 ))}

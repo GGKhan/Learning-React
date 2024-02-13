@@ -253,9 +253,43 @@ Now that your component’s code loads on demand, you also need to specify what 
 
 The beauty of this thing called tailwind is it doesn’t impose design specifications or how your site should look, you simply bring tiny components together to construct a user interface that is unique. What Tailwind simply does is take a ‘raw’ CSS file, process this CSS file over a configuration file, and produce an output.
 
+## 08-02-2024 ##
 
+# Higher Order Components # 
+It is an function which takes the component & transforms it  & returns the components
+it is an pure function hich means it will not chnage the stste of the component but 
 
+# Controlled & Uncontrolled Components # 
+Components are those in which form’s data is handled by the component’s state. It takes its current value through props and makes changes through callbacks like onClick, onChange, etc. A parent component manages its own state and passes the new values as props to the controlled component.
 
+Components are the components that are not controlled by the React state and are handled by the DOM (Document Object Model). So in order to access any value that has been entered we take the help of refs.
+
+For instance, if we want to add a file as an input, this cannot be controlled as this depends on the browser so this is an example of an uncontrolled input.
+
+Difference between Controlled and Uncontrolled Components
+Controlled  Component
+Uncontrolled Component
+The component is under control of the component’s state.	Components are under the control of DOM.
+These components are predictable as are controlled by the state of the component.	Are Uncontrolled because during the life cycle methods the data may loss
+Internal state is not maintained	Internal state is maintained
+It accepts the current value as props	We access the values using refs
+Does not maintain its internal state.	Maintains its internal state.
+Controlled by the parent component.	Controlled by the DOM itself.
+Have better control on the form data and values	Has very limited control over form values and data
+
+# Lifting The State Up # 
+
+Lifting state up is a common pattern that react developers use to share state between multiple components. This process involves moving the state management from child components to a common ancestor (parent component). This way, the state becomes the "source of truth" for child components, and they can access and update it through props.
+
+Lifting state up is a technique used in React to share state between multiple components. Instead of each component having its own local state, the state is lifted up to their closest common ancestor. This common ancestor then passes the state down to the components through props. This allows the components to stay in sync and reflect the same data.
+
+# Props Drilling #
+Prop drilling is the process of passing down data or state through multiple layers of a component hierarchy. By the way, it refers to the practice of passing data from a parent component to its children and then from the children to their own children and so on, until the data reaches the desired component that needs it..
+
+Prop drilling can be a necessary and effective way to manage application state, it can also become a problem when the hierarchy of components becomes too deep or complex. This can lead to several issues. Let's say, code duplication, increased cognitive load and decreased maintainability..
+
+# useContext #
+# Provider #
 
 
 

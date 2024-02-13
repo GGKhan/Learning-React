@@ -30,4 +30,19 @@ const RestoCard = (props) => {
     );
 };
 
+//Higher Order Component//
+
+export const withOpenLable = (RestoCard) => {
+    return (props) => {
+
+        return (
+            <div>
+                <label className=" mx-4 rounded-b-lg absolute bg-green-500 text-white">Pure Veg</label>
+                <RestoCard{...props}/>
+            </div>
+        );
+    };
+};
+
 export default RestoCard;
+
