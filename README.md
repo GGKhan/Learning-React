@@ -253,7 +253,7 @@ Now that your component’s code loads on demand, you also need to specify what 
 
 The beauty of this thing called tailwind is it doesn’t impose design specifications or how your site should look, you simply bring tiny components together to construct a user interface that is unique. What Tailwind simply does is take a ‘raw’ CSS file, process this CSS file over a configuration file, and produce an output.
 
-## 08-02-2024 ##
+## 08-02-2024 ## ## 09-02-2024 ## ## 12-02-2024 ## ## 13-02-2024 ##
 
 # Higher Order Components # 
 It is an function which takes the component & transforms it  & returns the components
@@ -289,7 +289,66 @@ Prop drilling is the process of passing down data or state through multiple laye
 Prop drilling can be a necessary and effective way to manage application state, it can also become a problem when the hierarchy of components becomes too deep or complex. This can lead to several issues. Let's say, code duplication, increased cognitive load and decreased maintainability..
 
 # useContext #
+The traditional react way to pass data down the react hierarchy is through props. In a sense, props are what make react react. useContext allows you to bypass this.
+I would highly suggest sticking to props without good reasons. However, there are certain cases where props can get tedious and useContext becomes the clear pattern.
 # Provider #
+Provider will re-render whenever the Provider’s value prop changes. In other words, If you don't wrap your components with Context.Provider they won't get re-rendered when the someValues in createContext(someValues) changes. You will get the initial value that you set only in the first render.
+
+## 14-02-2024 ##
+
+## Redux Store ##
+
+# State & Data Management #
+
+Redux works in Data Layer along with sync to UI Layer
+Notes :- Redux is not mandatory, its not needed small or mid size app , any large Read & write App with huge components required redux
+Redux is an seperate library.. react & redux are not same.
+We have other liberaries used for state management... like ZUSTAND
+Advantages of redux...
+Apps become easier to debug
+best offers state management
+
+Redux Teams offers Two Libraries
+1) React-Redux - It is used to bridge the gap between react & redux
+2) Redux Toolkit  - Latest
+
+
+* Slice is an logical seperation on the codes related to the app Example :- Cart , Users Etc
+ * Write Data  
+Dispatch Action => Action Call With Fun() REDUCER => Action with Fun() will Modify Slice of a redux Store
+* Read Data
+selector (Subscribing to the Store)
+
+## Start - Go - stepwise ##
+
+- Install @reduxjs/toolkit and react-redux
+- Build our store
+- connect our store to app
+- create a slice / cart slice to add item to cart
+- write the data using dispatch action
+- read the data using selector & its in hook in react
+
+import { configureStore } from "@reduxjs/toolkit";
+
+
+const appStore = configureStore(
+    {
+        
+    }
+);
+
+export default appStore;
+
+#
+
+import { Provider } from "react-redux";
+
+<> Wrapping The Component by passing Props to store means required app / component to store > 
+
+<Provider store = {appStore}></Provider>
+
+
+
 
 
 

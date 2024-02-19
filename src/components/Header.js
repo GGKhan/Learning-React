@@ -3,6 +3,7 @@ import { useState , useContext } from "react";
 import { Link } from "react-router-dom";
 import useNetActive from "../utils/useNetActive";
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 const Header = () => { 
 
@@ -11,6 +12,10 @@ const Header = () => {
     const status = useNetActive();
 
     const {loggedUser} = useContext(userContext);
+
+    // Subscribing to the store using Selector 
+
+    const cartItems = useSelector((store) => store.cart.items);
     
     return (
             <div className = "flex justify-between bg-white shadow-lg mb-2 " >
@@ -33,8 +38,10 @@ const Header = () => {
                         <Link to= "/contact" className="font-medium text-orange-400 dark:text-orange-500 hover:underline">Contact Us</Link>
                         </li>
                          
-                        <li className="px-4 font-medium text-orange-400 dark:text-orange-500 hover:underline">Cart</li>
-
+                        <li className="px-4 ">
+                        <Link to= "/cart/" className="font-medium text-orange-400 dark:text-orange-500 hover:underline">Cart  ⇢ 🛒 {cartItems.length}</Link>
+                        </li>
+                        
                         <li className="px-4 font-medium text-orange-400 dark:text-orange-500 ">{status ? "🟢Online" : "🔴Offline"} </li>
                         <li className="mx-2">{loggedUser}</li>
                         <button className="text-white bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-orange-300 dark:focus:ring-orange-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"  

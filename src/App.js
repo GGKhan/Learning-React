@@ -9,6 +9,9 @@ import RestroMenu from "./components/RestroMenu";
 import { RouterProvider, createBrowserRouter , Outlet } from "react-router-dom";
 import { lazy , Suspense } from "react";
 import userContext from "./utils/userContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 
 const About = lazy(() => import("./components/About"))
@@ -29,15 +32,17 @@ const AppLayout = () => {
 
 
     return (
-        <userContext.Provider value={ {loggedUser : userName , setUserName}}>
-            <div className="app" >
+        <Provider store = {appStore}>
+            <userContext.Provider value={ {loggedUser : userName , setUserName}}>
+                <div className="app" >
 
-            <Header/>
+                <Header/>
 
-            <Outlet/>
+                <Outlet/>
 
-            </div>
-        </userContext.Provider>
+                </div>
+            </userContext.Provider>
+        </Provider>
         
     );
 };
@@ -64,6 +69,10 @@ const appRouting = createBrowserRouter ([
             {
                 path: "/contact",
                 element: <ContactUs/>,
+            },
+            {
+                path: "/cart/",
+                element: <Cart/>
             },
             {
                 path: "/restro/:resId",
